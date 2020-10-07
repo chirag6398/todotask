@@ -1,88 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import Tooltip from '@material-ui/core/Tooltip';
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-
-
-//import Listitems from '../../todolist/src/component/Listitems';
-
-// let status = React.createContext();
-
-
-
-// let item = React.createContext();
-
-// let cstatus = React.createContext();
-
-// let deleteitem = React.createContext();
-
-
 const Form = (props) => {
-
     const history = useHistory();
-  //  let miniform=null;
-
-    // let [items, setitems] = useState("");
-    // let [listitems, setlistitems] = useState([]);
-    // let [status, setStatus] = useState(false);
-
-
-
-
-
-    // const itemsHandler = (event) => {
-    //     setitems(event.target.value);
-
-    // }
-    // const additemstolist = () => {
-    //     setlistitems((prevstate) => {
-    //         return [...prevstate, items];
-
-    //     });
-    // status = true;
-    //     setStatus(true)
-    //     setitems("");
-    // }
-    // const deleteItemHandler = (event) => {
-
-    //     setlistitems((prevstate) => {
-    //         let olditems = [...prevstate];
-    //         olditems.splice(event, 1);
-    //         return [...olditems]
-
-    //     })
-
-    // }
-    
-        // miniform=(props.titledata.map((val)=>{
-        //     return(<>
-        //         {props.statusdata.map((vl)=>{
-        //             return(<>
-        //                 <div style={{zIndex:"10"
-                        
-        //                 }}>
- 
- 
-        //                     <div style={{color:"white"}}>
-        //                         <p>Title:<span style={{fontFamily:"sans-serif"}}>{val}{console.log(val)}</span></p>
-        //                         <p>Status:<span style={{fontFamily:"sans-serif"}}>{vl}{console.log(vl)}</span></p>
-        //                     </div>
-        //                 </div>
-        //             </>)
-        //         })}
-        //     </>)
-        // })
-        // )
-    
-
-
     return (<>
-        {/* // <item.provider value={listitems}>
-        //     <cstatus.Provider value={status}>
-        //         <deleteitem.provider value={deleteItemHandler}> */}
         <div style={{
             position: "absolute",
             top: "10%",
@@ -94,7 +19,6 @@ const Form = (props) => {
             justifyContent: "center",
             alignItems: "center"
         }}>
-
             <div style={{
                 position: "absolute",
                 top: "4%",
@@ -105,16 +29,12 @@ const Form = (props) => {
                 boxShadow: "1px 2px 0px 2px gray",
                 textAlign: "center"
             }}>
-
                 <h1 style={{
                     letterSpacing: "4px",
                     color: "whitesmoke"
 
                 }}>Todolist</h1>
                 <br></br>
-
-                {/* <div className="input-group mb-3" > */}
-
                 <input type="text"
                     class="form-control"
                     aria-label="Sizing example input"
@@ -169,7 +89,6 @@ const Form = (props) => {
                         onClick={() => {
 
                             let lstitm = props.item;
-                            //   console.log(lstitm);
                             props.addItemToList(lstitm);
                             history.goBack();
                         }}
@@ -177,46 +96,11 @@ const Form = (props) => {
                         <Tooltip title="add to list"><AddIcon />
                         </Tooltip></button>
                 </div>
-
-                {/* </div> */}
-            
-                
-                    {/* <status.Provider value={"false"}> */}
-                    {/* <Home item={listitems}
-                    cstatus={status}
-                    deleteitem={deleteItemHandler}
-                /> */}
-                    {/* </status.Provider> */}
-                
             </div>
-
         </div>
-
- 
-{/* 
-      
-        //         </deleteitem.provider>
-        //     </cstatus.Provider>
-        // </item.provider> */}
-
- 
-   
-   
-  
-        </>
+    </>
     )
-    
 }
-
-
-
-
-
-
-
-
-
-
 
 const mapToprop = (state) => {
     return {
@@ -224,57 +108,31 @@ const mapToprop = (state) => {
         itemlist: state.listitems,
         inputstatus: state.inptstatus,
         ttl: state.title,
-        titledata:state.titlearr,
-        statusdata:state.statusarr
+        titledata: state.titlearr,
+        statusdata: state.statusarr
 
-        
+
     }
 }
-
-
-
-
-
-
-
-
-
-
 const mapDispatchtoprop = (dispatch) => {
     return {
         itemsHandler: (item) => {
             console.log(item);
-
             dispatch({ type: "itemShowOnInput", payload: item })
-            // setitems(event.target.value);
         },
         addItemToList: (lstitm) => {
             console.log("i am clicked")
             dispatch({ type: "additemtolist", payload: lstitm })
         },
-
         inputstatusHandler: (inptstatus) => {
             console.log(inptstatus);
             dispatch({ type: "statusinput", payload: inptstatus })
         },
-
         titleHandlerHandler: (titl) => {
             console.log(titl);
             dispatch({ type: "statustitle", payload: titl })
         }
-        // deleteItemHandler : (event) => {
-
-        //     dispatch({type:"deleteitem",payload:event})
-
-        //     // setlistitems((prevstate) => {
-        //     //     let olditems = [...prevstate];
-        //     //     olditems.splice(event, 1);
-        //     //     return [...olditems]
-
-        //     // })
-
-        // }
     }
 }
-//export {item,cstatus,deleteitem};
+
 export default connect(mapToprop, mapDispatchtoprop)(Form);
