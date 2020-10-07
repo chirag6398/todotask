@@ -1,14 +1,14 @@
 import React from 'react'
-import Navbar from "./Navbar"
+import Navbar from "./Component/Navbar"
 
-import Routing from "./Routing";
+import Routing from "./Component/Routing";
 import { BrowserRouter } from "react-router-dom"
 const  App=(props)=> {
   return (
     <div style={{
       width: "100%",
       height: "100%",
-      backgroundColor: "black",
+      // backgroundColor: "black",
       display: "flex",
       justifyContent: "center",
       alignItems: "center"

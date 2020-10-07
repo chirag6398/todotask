@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import Tooltip from '@material-ui/core/Tooltip';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
