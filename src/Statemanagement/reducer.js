@@ -37,7 +37,9 @@ const reducer=(state=cstate,action)=>{
        
         return{
             ...state,
-            listitems:action.payload
+            listitems:action.payload.Litem,
+            titlearr:action.payload.title,
+            statusarr:action.payload.status
         }
     }
     if(action.type==="statusinput"){

@@ -4,9 +4,23 @@ import Tooltip from '@material-ui/core/Tooltip';
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import Statusf from "./Status";
 const Form = (props) => {
     const history = useHistory();
+    let Formstatus = null;
+
+    if (props.cstatus) {
+        Formstatus = props.titledata.map((val1, index) => {
+
+            return <Statusf key={index}
+                tdata={val1}
+                sdata={props.statusdata[index]}
+            />
+        })
+
+    }
+
+
     return (<>
         <div style={{
             position: "absolute",
@@ -36,7 +50,7 @@ const Form = (props) => {
                 }}>Todolist</h1>
                 <br></br>
                 <input type="text"
-                    class="form-control"
+                    className="form-control"
                     aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default"
                     placeholder="add items to list"
@@ -49,7 +63,7 @@ const Form = (props) => {
                 />
                 <br></br>
                 <input type="text"
-                    class="form-control"
+                    className="form-control"
                     aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default"
                     placeholder="Title.."
@@ -61,7 +75,7 @@ const Form = (props) => {
                     }}
                 />
                 <br></br>
-                <textarea type="text" class="form-control"
+                <textarea type="text" className="form-control"
                     rows="1"
                     aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default"
@@ -89,14 +103,35 @@ const Form = (props) => {
                         onClick={() => {
 
                             let lstitm = props.item;
-                            props.addItemToList(lstitm);
+                            {if(lstitm !==""){
+                                props.addItemToList(lstitm);
                             history.goBack();
+                            }
+                            else 
+                            alert(`Opps you have to add item`);}
+                          
                         }}
                     >
                         <Tooltip title="add to list"><AddIcon />
                         </Tooltip></button>
                 </div>
             </div>
+            {/*             
+ { props.cstatus?
+          
+         
+         <div className="statustyle">
+           <h2>Title:<span style={{padding:"3px",textTransform:"capitalize"}}>{props.titledata}</span></h2>
+           <br/>
+           <h2>Status:<span style={{padding:"3px",textTransform:"capitalize"}}>{props.statusdata}</span></h2>
+
+
+         </div>:null 
+         
+}  */}
+
+            {Formstatus}
+
         </div>
     </>
     )
@@ -104,6 +139,7 @@ const Form = (props) => {
 
 const mapToprop = (state) => {
     return {
+        cstatus: state.status,
         item: state.items,
         itemlist: state.listitems,
         inputstatus: state.inptstatus,
@@ -122,6 +158,7 @@ const mapDispatchtoprop = (dispatch) => {
         },
         addItemToList: (lstitm) => {
             console.log("i am clicked")
+
             dispatch({ type: "additemtolist", payload: lstitm })
         },
         inputstatusHandler: (inptstatus) => {

@@ -26,10 +26,20 @@ const Home = (props) => {
                 key={index}
                 Litem={val}
                 onClicked={(event) => {
+                  console.log(props.titledata[index]);
+                  console.log(props.statusdata[index]);
+                  let Ntitle=[...props.titledata];
+                  let Nstatus=[...props.statusdata];
+                  Ntitle.splice(index, 1);
+                  Nstatus.splice(index, 1);
+                  console.log(props.titledata);
+                  console.log(props.statusdata);
                   
                     let olditem = [...props.listitem];
                     olditem.splice(index, 1);
-                    props.deleteitem(olditem)
+                  let  Ndata={title:[...Ntitle],status:[...Nstatus],Litem:[...olditem]}
+                    console.log(Ndata)
+                    props.deleteitem(Ndata)
                 }}
             ></Listitems>
 
@@ -102,14 +112,16 @@ const Home = (props) => {
 const mapStateToProp = (state) => {
     return {
         cstatus: state.status,
-        listitem: state.listitems
+        listitem: state.listitems,
+        titledata: state.titlearr,
+        statusdata: state.statusarr
     }
 }
 const mapdispatchtoprop = (dispatch) => {
     return {
-        deleteitem: (lstitm) => {
+        deleteitem: (Ndata) => {
             // console.log(lstitm);
-            dispatch({ type: "dltitm", payload: lstitm })
+            dispatch({ type: "dltitm", payload: Ndata})
         }
     }
 }
