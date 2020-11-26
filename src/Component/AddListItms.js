@@ -5,6 +5,7 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Statusf from "./Status";
+
 const Form = (props) => {
     const history = useHistory();
     let Formstatus = null;
@@ -28,27 +29,35 @@ const Form = (props) => {
             left: "0px",
             height: "100%",
             width: "100%",
-            backgroundColor: "black",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
+            
+            
         }}>
-            <div style={{
+            <div className="form-group" style={{
                 position: "absolute",
                 top: "4%",
                 width: "20%",
-                height: "45%",
-                backgroundImage: "url(C:\Users\Cinni\Desktop\notebook.jpg) ",
+                height: "49%",
                 borderRadius: "20px",
                 boxShadow: "1px 2px 0px 2px gray",
-                textAlign: "center"
+                textAlign: "center",
+                zIndex:"10",
+                overflow:"auto",
+                backgroundColor:"black",
+                opacity:"0.9"
             }}>
                 <h1 style={{
                     letterSpacing: "4px",
                     color: "whitesmoke"
 
                 }}>Todolist</h1>
+
+
                 <br></br>
+
+
                 <input type="text"
                     className="form-control"
                     aria-label="Sizing example input"
@@ -94,11 +103,14 @@ const Form = (props) => {
                     right: "3%",
                     bottom: "2%"
                 }}>
+                 </div>
                     <button type="button"
                         className="btn btn-outline-success btn-sm "
                         style={{
                             borderRadius: "100px",
                             boxShadow: "1px 1px 1px 1px ",
+                            float:"right",
+                            marginRight:"2vw",
                         }}
                         onClick={() => {
 
@@ -114,21 +126,10 @@ const Form = (props) => {
                     >
                         <Tooltip title="add to list"><AddIcon />
                         </Tooltip></button>
-                </div>
+               
             </div>
-            {/*             
- { props.cstatus?
-          
-         
-         <div className="statustyle">
-           <h2>Title:<span style={{padding:"3px",textTransform:"capitalize"}}>{props.titledata}</span></h2>
-           <br/>
-           <h2>Status:<span style={{padding:"3px",textTransform:"capitalize"}}>{props.statusdata}</span></h2>
-
-
-         </div>:null 
-         
-}  */}
+             
+ 
 
             {Formstatus}
 
@@ -139,13 +140,13 @@ const Form = (props) => {
 
 const mapToprop = (state) => {
     return {
-        cstatus: state.status,
-        item: state.items,
-        itemlist: state.listitems,
-        inputstatus: state.inptstatus,
-        ttl: state.title,
-        titledata: state.titlearr,
-        statusdata: state.statusarr
+        cstatus: state.data.status,
+        item: state.data.items,
+        itemlist: state.data.listitems,
+        inputstatus: state.data.inptstatus,
+        ttl: state.data.title,
+        titledata: state.data.titlearr,
+        statusdata: state.data.statusarr
 
 
     }
@@ -153,20 +154,20 @@ const mapToprop = (state) => {
 const mapDispatchtoprop = (dispatch) => {
     return {
         itemsHandler: (item) => {
-            console.log(item);
+          
             dispatch({ type: "itemShowOnInput", payload: item })
         },
         addItemToList: (lstitm) => {
-            console.log("i am clicked")
+           
 
             dispatch({ type: "additemtolist", payload: lstitm })
         },
         inputstatusHandler: (inptstatus) => {
-            console.log(inptstatus);
+            
             dispatch({ type: "statusinput", payload: inptstatus })
         },
         titleHandlerHandler: (titl) => {
-            console.log(titl);
+         
             dispatch({ type: "statustitle", payload: titl })
         }
     }

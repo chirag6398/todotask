@@ -6,9 +6,7 @@ const cstate={
     statusarr:[],
     title:"",
     titlearr:[]
-    // let [items, setitems] = useState("");
-    // let [listitems, setlistitems] = useState([]);
-    // let [status, setStatus] = useState(false);
+   
 
 }
 

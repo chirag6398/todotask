@@ -55,7 +55,7 @@ ul li{
 }
 
 ul:hover li{
-  transform:translatey(-100px) rotate(25deg);
+  transform:translatex(-100px) ;
   opacity:0;
   
 }
@@ -171,21 +171,4 @@ ul li:nth-child(19){
 
 ul li:nth-child(20){
   transition-delay: 2s;
-}
-
-div .statustyle{
-  position:absolute;
-  margin-left: 2%;
-  top:50%;
-  width:20%;
-  height:30%;
-  background-color: hsl(0, 7%, 13%);
-  border:2px solid rgb(37, 35, 35);
-  border-radius:15px ;
-  /* box-shadow:2px 3px 1px 0px  hsl(0, 33%, 83%) ; */
-  
-  padding-top: 5px;
-  color:white;
-  padding-left: 2%;
-  
 }

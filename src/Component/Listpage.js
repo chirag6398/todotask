@@ -1,44 +1,45 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { connect } from "react-redux";
-import Listitems from "../Homecomponent/Listitems"
+import Listitems from "../Homecomponent/Listitems";
+
 
 const Home = (props) => {
  
     const centerstyle = {
         position: "absolute",
+        left:"35%",
         top: "15%",
         width: "30%",
         backgroundColor: "black",
         height: "70%",
         boxShadow: " 1px 2px 2px 3px rgb(88, 84, 84)",
-        borderRadius: "15px"
+        borderRadius: "15px",
+        overflow:"auto",
+        opacity:"0.9"
     }
     let listitems = null;
 
 
 
     if (props.cstatus) {
-        console.log("in if statement");
+       
         listitems = (props.listitem.map((val, index) => {
     return(
             <Listitems
                 key={index}
                 Litem={val}
                 onClicked={(event) => {
-                  console.log(props.titledata[index]);
-                  console.log(props.statusdata[index]);
+                
                   let Ntitle=[...props.titledata];
                   let Nstatus=[...props.statusdata];
                   Ntitle.splice(index, 1);
                   Nstatus.splice(index, 1);
-                  console.log(props.titledata);
-                  console.log(props.statusdata);
-                  
+                 
                     let olditem = [...props.listitem];
                     olditem.splice(index, 1);
                   let  Ndata={title:[...Ntitle],status:[...Nstatus],Litem:[...olditem]}
-                    console.log(Ndata)
+                   
                     props.deleteitem(Ndata)
                 }}
             ></Listitems>
@@ -111,16 +112,16 @@ const Home = (props) => {
 
 const mapStateToProp = (state) => {
     return {
-        cstatus: state.status,
-        listitem: state.listitems,
-        titledata: state.titlearr,
-        statusdata: state.statusarr
+        cstatus: state.data.status,
+        listitem: state.data.listitems,
+        titledata: state.data.titlearr,
+        statusdata: state.data.statusarr
     }
 }
 const mapdispatchtoprop = (dispatch) => {
     return {
         deleteitem: (Ndata) => {
-            // console.log(lstitm);
+           
             dispatch({ type: "dltitm", payload: Ndata})
         }
     }

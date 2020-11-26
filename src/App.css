@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.ext_div{
+  height: "100%";
+  width: "100%";
+
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+}
+
+.cnt_div{
+  position: "absolute";
+  left: "45%";
+  top: "30%";
+}
