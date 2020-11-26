@@ -5,7 +5,7 @@ import App from './App';
 import {createStore,applyMiddleware,combineReducers} from "redux";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
-import reducer from "./Statemanagement/reducer";
+import reducer from "./Statemanagement/reducerdata";
 
 const ComReducer=combineReducers({
   data:reducer,

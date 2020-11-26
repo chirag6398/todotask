@@ -1,0 +1,31 @@
+.centerstyle {
+    position: absolute;
+    right:3vw;
+    top: 18%;
+    width: 30%;
+    background-color: black;
+    height:70%;
+    box-shadow: 1px 2px 2px 3px rgb(88, 84, 84);
+    border-radius: 15px;
+    overflow:auto;
+    opacity:"0.9";
+}
+.heading{
+    text-transform: capitalize;
+    text-align: center;
+    color: white
+}
+.Lpimg{
+    position: absolute;
+    left: 10vw;
+    top:25vh;
+    height: 60%;
+    width: auto;
+    box-shadow: 1px 3px 2px 0px rgb(202, 190, 190);
+    border-radius: 5%;
+}
+.ext_div{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(214, 229, 247);
+}
