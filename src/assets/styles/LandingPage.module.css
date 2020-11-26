@@ -1,0 +1,16 @@
+
+.Lpimg{
+    position: absolute;
+    left: 3vw;
+    top:15vh;
+    height: 60%;
+    width: auto;
+    box-shadow: 1px 3px 2px 0px rgb(202, 190, 190);
+    border-radius: 5%;
+}
+.heading{
+    color: rgb(73, 69, 69);
+    position: absolute;
+    right: 4vw;
+    top:15vh;
+}

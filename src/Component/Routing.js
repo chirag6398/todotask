@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from "react-router-dom";
 import Home from "./Listpage";
 import Form from "./AddListItms";
+import LandingPage from "./LandingPage"
 
 
 export default function Routing() {
@@ -9,6 +10,7 @@ export default function Routing() {
         <div>
 
             <Switch>
+            <Route exact path="/"><LandingPage/></Route>
                 <Route exact path="/listitems">
                     <Home />
                 </Route>
