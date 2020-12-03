@@ -14,13 +14,16 @@ const Listitems = (props) => {
                 className="btn btn-outline-danger btn-sm  "
                 style={{
                     marginRight: "9px",
-                    marginBottom: "4px"
+                    marginBottom: "8px"
                 }}
                 onClick={props.onClicked}
             >  <Tooltip title="remove item from list"><DeleteIcon /></Tooltip>
             </button>
             <span style={{ color: "white" }}>{props.Litem}</span>
+
         </li>
+        <br />
+
 
 
 

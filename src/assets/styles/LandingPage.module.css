@@ -2,16 +2,96 @@
 .Lpimg{
     position: absolute;
     left: 3vw;
-    top:15vh;
-    height: 60%;
+    top:25vh;
+    height: 50%;
     width: auto;
     box-shadow: 1px 3px 2px 0px rgb(202, 190, 190);
     border-radius: 5%;
+  
 }
 
+@media screen and (max-width: 1200px) {
+    .Lpimg {
+        position: absolute;
+        left: 3vw;
+        top:65vh;
+        height: 33%;
+        width: auto;
+        box-shadow: 1px 3px 2px 0px rgb(202, 190, 190);
+        border-radius: 5%;
+    }
+    
 .heading{
-    color: rgb(73, 69, 69);
+    color: rgb(247, 234, 234);
+    font-weight: bold;
+    position: absolute;
+    left: 4vw;
+    top:33vh;
+    font-size: 7vh;
+
+}
+  }
+
+.heading{
+    color: rgb(247, 234, 234);
+    font-weight: bold;
     position: absolute;
     right: 4vw;
-    top:15vh;
+    top:33vh;
+    transition-property: content;
+    transition-delay: 1s;
+    font-size: 7vh;
+    /* animation-name: linemovement;
+    animation-duration: 5s; */
+
+}
+@keyframes linemovement2{
+    from{
+        position:absolute;
+        left:-200vw;
+        opacity: 0;
+
+    }
+    to{
+        position:absolute;
+        left:-3vw;
+        opacity: 1;
+    }
+}
+
+@keyframes linemovement1{
+    from{
+        position:absolute;
+        right:-10vw;
+        opacity: 0;
+
+    }
+    to{
+        position:absolute;
+        right:-3vw;
+        opacity: 1;
+    }
+}
+.heading:hover{
+    transform: translateX(-23px);
+}
+
+.heading::before{
+    position: absolute;
+    left:-3vw;
+    top:-10vh;
+    animation-name: linemovement2;
+    animation-duration: 2s;
+    content: "_________";
+    border-top: white;
+}
+
+.heading::after{
+    position: absolute;
+    right:-3vw;
+    top:3vh;
+    animation-name: linemovement1;
+    animation-duration: 2s;
+    content: "_________";
+    border-top: white;
 }

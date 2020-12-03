@@ -7,7 +7,7 @@ export default function LandingPage() {
     return (
         <div>
         <img src={Lpimg} className={LpStyle.Lpimg} alt="loading...."/>
-         <h1 className={LpStyle.heading}> Welcome to todoapp</h1>
+        <span className={LpStyle.heading}> Welcome to todoapp</span>
         </div>
     )
 }
