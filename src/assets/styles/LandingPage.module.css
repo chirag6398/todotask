@@ -3,12 +3,12 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   position: absolute;
   top: 0px;
   padding: 10px;
-  padding-right: 10vh;
+  /* padding-right: 10vh; */
 }
 
 .Lpimg {
@@ -55,11 +55,11 @@
 
 @keyframes linemovement1 {
   from {
-    right: 100vw;
+    left: 100vw;
     opacity: 0;
   }
   to {
-    right: 3vw;
+    left: 3vw;
     opacity: 1;
   }
 }
@@ -82,7 +82,7 @@
   left: -7vw;
   top: -7vh;
   animation-name: linemovement1;
-  animation-duration: 3s;
+  animation-duration: 2s;
   content: "_________";
   border-top: white;
 }
