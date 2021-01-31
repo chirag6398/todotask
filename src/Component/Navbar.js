@@ -1,13 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { auth } from "../Auth/firebase/fire";
 
 export default function navbar() {
+  const logOutHandler = () => {
+    auth.signOut();
+  };
   return (
     <>
       <nav
         className="navbar navbar-expand-lg navbar-light bg-dark text-white-50 "
-        style={{ zIndex: "100" }}
+        style={{
+          zIndex: "100",
+          position: "absolute",
+          top: "0px",
+          width: "100vw",
+        }}
       >
         <button
           className="navbar-toggler"
@@ -36,6 +45,23 @@ export default function navbar() {
               <NavLink to="/AddItem">
                 <span className="active_class text-white-50">AddItem</span>
               </NavLink>
+            </li>
+            <li className="nav-item text-white-50 mx-4">
+              <form>
+                <button
+                  type="submit"
+                  className="btn btn-outline-dark"
+                  style={{ border: "none", padding: "0px" }}
+                >
+                  <span
+                    className="active_class text-white-50"
+                    onClick={logOutHandler}
+                    style={{ cursor: "pointer" }}
+                  >
+                    LogOut
+                  </span>
+                </button>
+              </form>
             </li>
           </ol>
         </div>

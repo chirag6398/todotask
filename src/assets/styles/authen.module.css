@@ -1,0 +1,38 @@
+.ext_div {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dddddd;
+}
+.center_div {
+  width: 40%;
+  height: 60%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid lightgray;
+  box-shadow: -3px 4px 20px -5px rgba(0, 0, 0, 0.5);
+  background-color: #fafafa;
+}
+.main_div {
+  /* margin-top: -90px; */
+}
+.button {
+  margin-top: 20px;
+  margin-left: 10px;
+  background-color: lightskyblue;
+  border-radius: 10px;
+  width: 76px;
+  border: none;
+}
+@media screen and (max-width: 800px) {
+  .center_div {
+    width: 278px;
+  }
+}

@@ -5,19 +5,18 @@ import { BrowserRouter } from "react-router-dom";
 import BIRDS from "vanta/dist/vanta.birds.min";
 import "./App.css";
 import Authen from "./Auth/Authen";
-import fire from "./Auth/firebase/fire";
+import { auth } from "./Auth/firebase/fire";
 
 const App = (props) => {
-  const [user, setUser] = useState({ u: "khsd" });
+  const [user, setUser] = useState({ u: "" });
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);
 
   var authListener = () => {
     console.log(user.u);
-    fire.auth().onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log(user);
-        setUser({ user });
+        setUser({ u: user.email });
       }
     });
   };
@@ -39,9 +38,20 @@ const App = (props) => {
   return (
     <>
       <BrowserRouter>
-        <Navbar></Navbar>
-        <div className="vanta" ref={myRef}></div>
-        <Routing />
+        <div
+          className="vanta"
+          ref={myRef}
+          style={{ height: "100vh", width: "100vw", opacity: "0.9" }}
+        ></div>
+        {user.u ? (
+          <div>
+            <Navbar></Navbar>
+
+            <Routing />
+          </div>
+        ) : (
+          <Authen />
+        )}
       </BrowserRouter>
     </>
   );
