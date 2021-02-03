@@ -12,17 +12,21 @@ const App = (props) => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);
 
-  var authListener = () => {
-    console.log(user.u);
+  // var authListener = () => {
+
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setUser({ u: user.email });
+  //     }
+  //   });
+  // };
+
+  useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         setUser({ u: user.email });
       }
     });
-  };
-
-  useEffect(() => {
-    authListener();
     if (!vantaEffect) {
       setVantaEffect(
         BIRDS({

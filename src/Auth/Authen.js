@@ -26,9 +26,7 @@ export default class Authen extends Component {
     const pass = this.state.pass;
     auth
       .signInWithEmailAndPassword(email, pass)
-      .then((user) => {
-        console.log("user successfully log-in");
-      })
+      .then((user) => {})
       .catch((error) => {
         this.setState({ err: error.message });
       });
@@ -49,9 +47,10 @@ export default class Authen extends Component {
       <div className={authenStyle.ext_div}>
         <div className={authenStyle.center_div}>
           <div className={authenStyle.main_div}>
-            <h2 style={{ fontWeight: "600" }}>
-              Login to <spna style={{ fontWeight: "bolder" }}>ToDo App</spna>
+            <h2>
+              Login to <span style={{ fontWeight: "bolder" }}>ToDo App</span>
             </h2>
+            <h3>***</h3>
             <form>
               <fieldset>
                 <legend>Email</legend>
@@ -61,8 +60,6 @@ export default class Authen extends Component {
                   onChange={this.inputHandler}
                   value={this.state.email}
                 />
-              </fieldset>
-              <fieldset>
                 <legend>Password</legend>
                 <input
                   type="password"
@@ -71,6 +68,7 @@ export default class Authen extends Component {
                   value={this.state.pass}
                 />
               </fieldset>
+
               <button
                 className={authenStyle.button}
                 type="submit"
@@ -87,7 +85,9 @@ export default class Authen extends Component {
               </button>
             </form>
             {this.state.err && (
-              <h3 style={{ color: "red" }}>{this.state.err}</h3>
+              <h4 style={{ marginTop: "10px", color: "red" }}>
+                {this.state.err}
+              </h4>
             )}
           </div>
         </div>
