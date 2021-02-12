@@ -9,6 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url("https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png");
+  background-position: center center;
 }
 .centerstyle {
   width: 43vw;
@@ -22,6 +24,9 @@
   box-shadow: -2px 5px 20px -5px rgb(88, 84, 84);
   border-radius: 15px;
   overflow: auto;
+}
+.centerstyle::-webkit-scrollbar {
+  display: none;
 }
 .heading {
   text-transform: capitalize;
@@ -125,6 +130,7 @@ ul li:nth-child(20) {
   height: auto;
   margin-right: 10px;
   object-fit: contain;
+  opacity: 1;
   width: 390px;
   box-shadow: 1px 3px 2px 0px rgb(202, 190, 190);
   border-radius: 5%;

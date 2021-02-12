@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { connect } from "react-redux";
 import Listitems from "../Homecomponent/Listitems";
 import LpageStyle from "../assets/styles/Listpage.module.css";
 import Lpageimg from "../assets/images/Lpageimg.jpg";
+import { TweenMax } from "gsap";
 
 const Home = (props) => {
   let listitems = null;
-
+  let lpComp = useRef(null);
+  let imgDiv = useRef(null);
+  useEffect(() => {
+    TweenMax.from(imgDiv, 1, {
+      x: -500,
+      rotate: 360,
+      opacity: 0,
+      duration: 1,
+      delay: 1,
+    });
+    TweenMax.from(lpComp, 1, { y: -1000, duration: 1, delay: 0.3 });
+  });
   if (props.cstatus) {
     listitems = props.listitem.map((val, index) => {
       return (
         <Listitems
           key={index}
           Litem={val}
-          onClicked={(event) => {
+          onClicked={() => {
             let Ntitle = [...props.titledata];
             let Nstatus = [...props.statusdata];
             Ntitle.splice(index, 1);
@@ -37,8 +49,17 @@ const Home = (props) => {
 
   return (
     <>
-      <div className={LpageStyle.ext_div}>
-        <div>
+      <div
+        className={LpageStyle.ext_div}
+        ref={(el) => {
+          lpComp = el;
+        }}
+      >
+        <div
+          ref={(el) => {
+            imgDiv = el;
+          }}
+        >
           <img className={LpageStyle.Lpimg} src={Lpageimg} alt="loading..." />
         </div>
 
